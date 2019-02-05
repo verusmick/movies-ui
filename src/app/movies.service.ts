@@ -22,9 +22,14 @@ export class MoviesService {
         });
     });
   }
-
-  private handleError(error: Response | any) {
-    console.error('ApiService::handleError', error);
-    return error;
+  getMovieById(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(API_URL + 'movies/' + id)
+        .subscribe(response => {
+          resolve(response);
+        }, err => {
+          reject(err);
+        });
+    });
   }
 }

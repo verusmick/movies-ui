@@ -2,11 +2,11 @@
   <img src="assets/img/{{movie.image}}">
   <div class="caption">
     <h4 class="text-ellipsis">
-      <a routerLink="/movie" title="test">{{movie.name}}</a>
+      <a routerLink="/movie/{{movie.id}}" title="test">{{movie.name}}</a>
     </h4>
     <p>{{movie.genre}}</p>
     <p>
-      <a routerLink="/movie">View details &raquo;</a>
+      <a routerLink="/movie/{{movie.id}}">View details &raquo;</a>
       <small class="label label-success pull-right">
         {{movie.rating}}
         <i class="glyphicon glyphicon-star"></i>
