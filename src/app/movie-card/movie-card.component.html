@@ -1,14 +1,14 @@
 <div class="thumbnail">
-  <img src="assets/img/bohemianR.webp">
+  <img src="assets/img/{{movie.image}}">
   <div class="caption">
     <h4 class="text-ellipsis">
-      <a routerLink="/movie" title="test">test</a>
+      <a routerLink="/movie" title="test">{{movie.name}}</a>
     </h4>
-    <p><strong>Release Date: </strong>test</p>
+    <p>{{movie.genre}}</p>
     <p>
       <a routerLink="/movie">View details &raquo;</a>
       <small class="label label-success pull-right">
-        3
+        {{movie.rating}}
         <i class="glyphicon glyphicon-star"></i>
       </small>
     </p>

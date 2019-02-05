@@ -15,8 +15,8 @@ export class MoviesService {
   getAllMovies() {
     return new Promise((resolve, reject) => {
       this.http.get(API_URL + 'movies')
-        .subscribe(data => {
-          resolve(data);
+        .subscribe(response => {
+          resolve(response);
         }, err => {
           reject(err);
         });
