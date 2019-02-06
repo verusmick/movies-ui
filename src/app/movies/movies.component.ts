@@ -8,7 +8,9 @@ import {MoviesService} from '../movies.service';
 })
 export class MoviesComponent implements OnInit {
   moviesList: Array<Object>;
-
+  searchStr: string;
+  genreFilter: '';
+  ratingFilter: '';
   constructor(private moviesService: MoviesService) {
   }
 
@@ -18,4 +20,12 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  clearSearchText() {
+    this.searchStr = '';
+  }
+
+  // filterForGenre(event){
+  //   console.log(event)
+  //
+  // }
 }

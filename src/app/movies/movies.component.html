@@ -1,24 +1,56 @@
 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
   <nav class="navbar navbar-default" role="navigation">
     <div class="collapse navbar-collapse movies-cat">
-      <div class="panel-heading">Browse</div>
       <ul class="nav nav-stacked">
-        <!--filters-->
+        filters for
+        <div class="form-group">
+          <label for="type">genre</label>
+          <select class="form-control" [(ngModel)]='genreFilter'>
+            <option value=""></option>
+            <option value="Drama">Drama</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="type">Rating</label>
+          <select class="form-control" [(ngModel)]='ratingFilter'>
+            <option value=""></option>
+            <option value="1">1 star</option>
+            <option value="2">2 star</option>
+            <option value="3">3 star</option>
+            <option value="4">4 star</option>
+            <option value="5">5 star</option>
+          </select>
+        </div>
       </ul>
     </div>
   </nav>
 </div>
 <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+  <div class="jumbotron">
+    <p>Search by title</p>
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchStr" name="searchStr">
+          <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="clearSearchText()">clear</button>
+        </span>
+        </div>
+        <!-- /input-group -->
+      </div>
+    </form>
+  </div>
   <!--content-->
   <p class="pull-right visible-xs">
     <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
   </p>
-  <!--<div class="jumbotron">-->
-    <p>Recommended for you</p>
-  <!--</div>-->
+  <p>Recommended for you</p>
   <div>
     <div class="row is-flex">
-      <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of this.moviesList; let i = index;">
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6"
+           *ngFor="let movie of this.moviesList | filters:'name':searchStr | filters:'genre':genreFilter| filters:'rating':ratingFilter">
         <movie-card [movie]="movie"></movie-card>
       </div>
     </div>
